@@ -1,14 +1,16 @@
+// Módulos
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-// Módulos
 import { AppRoutingModule } from './app.routing.module';
+import { HttpModule } from '@angular/http';
 
 // Componentes
 import { AppComponent } from './app.component';
+import { MaterialModule } from './shared/material.module';
 import { LoginComponent } from './login/login.component';
 
 // Serviços
+import { StatesService } from './states/states.service';
 
 
 @NgModule({
@@ -18,9 +20,13 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     AppRoutingModule,
+    HttpModule,
+    MaterialModule,
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    StatesService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

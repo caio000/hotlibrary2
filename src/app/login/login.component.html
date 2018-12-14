@@ -5,31 +5,90 @@
        <img src="assets/hotlibrary-login-logo.png">
      </div>
      <div class="card-content">
+      <ul class="tabs">
+        <li class="tab col s6" (click)="showTab('login')" ><a class="red-text">Entrar</a></li>
+        <li class="tab col s6" (click)="showTab('registration')" ><a class="red-text">Cadastrar-se</a></li>
+      </ul>
 
-       <form>
-         <div class="row">
-           <div class="input-field col s12">
-             <input type="email" id="user-email">
-             <label for="user-email">Email</label>
-           </div>
-         </div>
 
-         <div class="row">
-           <div class="input-field col s12">
-             <input type="password" id="user-password">
-             <label for="user-password">Senha</label>
-           </div>
-         </div>
-       </form>
+      <form name="formLogin" *ngIf="showLogin()">
+        <div class="row">
+          <div class="col s12">
+            <mz-input-container>
+              <input mz-input
+                [label]="'Email'"
+                [validate]="true"
+                type="email">
+            </mz-input-container>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <mz-input-container>
+              <input mz-input
+                [label]="'Senha'"
+                [validate]="true"
+                type="password">
+            </mz-input-container>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <button mz-button
+              type="submit"
+              name="btnLogin"
+              class="right red darken-2">
+                Entrar
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <form name="formSignup" *ngIf="!showLogin()">
+        <div class="row">
+          <div class="col s12">
+            <mz-input-container>
+              <input mz-input
+                [label]="'Nome'"
+                [validate]="true"
+                [length]="150"
+                maxlength="150"
+                type="text">
+            </mz-input-container>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <mz-input-container>
+              <input mz-input
+                [label]="'Email'"
+                [validate]="true"
+                type="email">
+            </mz-input-container>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <mz-select-container>
+              <select mz-select
+                id="signupStateName"
+                [placeholder]="'Selecione um estado...'">
+                <option async *ngFor="let state of states" value="{{ state.id }}">{{ state.name }}</option>
+              </select>
+            </mz-select-container>
+          </div>
+        </div>
+
+      </form>
+
      </div>
-     <div class="card-action">
-       <button
-        type="button"
-        class="btn waves-effect waves-light red darken-2"
-        (click)="login()">
-        Entrar
-      </button>
-     </div>
+    <div class="card-action">
+
+    </div>
    </div>
  </div>
 </div>

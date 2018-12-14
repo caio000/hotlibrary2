@@ -1,0 +1,7 @@
+li a {
+  cursor: pointer;
+}
+
+li a:hover {
+  border-bottom: solid 1px;
+}
