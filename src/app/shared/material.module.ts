@@ -3,9 +3,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MzButtonModule,
   MzInputModule,
+  MzModalModule,
   MzSelectModule,
+  MzSpinnerModule,
   MzValidationModule
 } from 'ngx-materialize';
+import { LoadingModalComponent } from './loading-modal/loading-modal.component';
 
 @NgModule({
   imports: [
@@ -13,6 +16,8 @@ import {
     MzInputModule,
     MzSelectModule,
     MzValidationModule,
+    MzSpinnerModule,
+    MzModalModule,
     BrowserAnimationsModule
   ],
   declarations: [],
@@ -22,6 +27,8 @@ import {
     MzInputModule,
     MzSelectModule,
     MzValidationModule,
+    MzSpinnerModule,
+    MzModalModule,
     BrowserAnimationsModule
   ],
 })

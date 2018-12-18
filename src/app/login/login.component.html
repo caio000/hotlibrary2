@@ -55,6 +55,8 @@
                 [validate]="true"
                 [length]="150"
                 maxlength="150"
+                name="user-name"
+                [(ngModel)]="user.name"
                 type="text">
             </mz-input-container>
           </div>
@@ -66,7 +68,64 @@
               <input mz-input
                 [label]="'Email'"
                 [validate]="true"
+                [(ngModel)]="user.email"
+                name="user-email"
                 type="email">
+            </mz-input-container>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <mz-input-container>
+              <input mz-input
+                #zipcodeInput
+                [label]="'CEP'"
+                [validate]="true"
+                (blur)="searchAddress(zipcodeInput.value)"
+                maxlength="8"
+                name="user-zipcode"
+                [(ngModel)]="user.address.zipcode"
+                type="text">
+            </mz-input-container>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <mz-input-container>
+              <input mz-input
+                [label]="'Endereço'"
+                [validate]="true"
+                [(ngModel)]="user.address.publicplace"
+                name="user-publicplace"
+                type="text">
+            </mz-input-container>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <mz-input-container>
+              <input mz-input
+                [label]="'Bairro'"
+                [validate]="true"
+                [(ngModel)]="user.address.neighborhood"
+                name="user-neighborhood"
+                type="text">
+            </mz-input-container>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <mz-input-container>
+              <input mz-input
+                [label]="'Cidade'"
+                [validate]="true"
+                [(ngModel)]="user.address.city"
+                name="user-city"
+                type="text">
             </mz-input-container>
           </div>
         </div>
@@ -76,6 +135,8 @@
             <mz-select-container>
               <select mz-select
                 id="signupStateName"
+                name="user-state"
+                [(ngModel)]="user.address.state.id"
                 [placeholder]="'Selecione um estado...'">
                 <option async *ngFor="let state of states" value="{{ state.id }}">{{ state.name }}</option>
               </select>
@@ -83,6 +144,28 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="col s12">
+            <mz-input-container>
+              <input mz-input
+                [label]="'Número'"
+                [validate]="true"
+                [(ngModel)]="user.address.number"
+                name="user-number"
+                type="number">
+            </mz-input-container>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <button mz-button
+              class="right red darken-2"
+              type="submit">
+                Cadastrar
+            </button>
+          </div>
+        </div>
       </form>
 
      </div>

@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { MaterialModule } from './../shared/material.module';
@@ -6,6 +7,7 @@ import { MaterialModule } from './../shared/material.module';
 import { LoginComponent } from './login.component';
 
 import { StatesService } from './../states/states.service';
+import { ViacepService } from './../shared/viacep.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -16,9 +18,10 @@ describe('LoginComponent', () => {
       declarations: [ LoginComponent ],
       imports: [
         MaterialModule,
+        FormsModule,
         HttpModule,
       ],
-      providers: [ StatesService ]
+      providers: [ StatesService, ViacepService ]
     })
     .compileComponents();
   }));
