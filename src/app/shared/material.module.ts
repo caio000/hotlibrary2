@@ -6,6 +6,7 @@ import {
   MzModalModule,
   MzSelectModule,
   MzSpinnerModule,
+  MzTabModule,
   MzValidationModule
 } from 'ngx-materialize';
 import { LoadingModalComponent } from './loading-modal/loading-modal.component';
@@ -18,6 +19,7 @@ import { LoadingModalComponent } from './loading-modal/loading-modal.component';
     MzValidationModule,
     MzSpinnerModule,
     MzModalModule,
+    MzTabModule,
     BrowserAnimationsModule
   ],
   declarations: [],
@@ -29,6 +31,7 @@ import { LoadingModalComponent } from './loading-modal/loading-modal.component';
     MzValidationModule,
     MzSpinnerModule,
     MzModalModule,
+    MzTabModule,
     BrowserAnimationsModule
   ],
 })

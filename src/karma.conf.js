@@ -6,7 +6,13 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     files: [
-      'https://code.jquery.com/jquery-1.11.2.min.js'
+      'https://code.jquery.com/jquery-1.11.2.min.js',
+      {
+        pattern: './../node_modules/ngx-materialize/bundles/ngx-materialize.umd.js',
+        included: false,
+        watched: false
+      }
+
     ],
     plugins: [
       require('karma-jasmine'),

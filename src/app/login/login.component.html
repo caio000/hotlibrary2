@@ -5,169 +5,47 @@
        <img src="assets/hotlibrary-login-logo.png">
      </div>
      <div class="card-content">
-      <ul class="tabs">
-        <li class="tab col s6" (click)="showTab('login')" ><a class="red-text">Entrar</a></li>
-        <li class="tab col s6" (click)="showTab('registration')" ><a class="red-text">Cadastrar-se</a></li>
-      </ul>
+       <mz-tab [fixedTabWidth]="'true'">
+         <mz-tab-item [label]="'Acessar Conta'">
+           <form name="formLogin">
+             <div class="row">
+               <div class="col s12">
+                 <mz-input-container>
+                   <input mz-input
+                     [label]="'Email'"
+                     [validate]="true"
+                     type="email">
+                 </mz-input-container>
+               </div>
+             </div>
 
+             <div class="row">
+               <div class="col s12">
+                 <mz-input-container>
+                   <input mz-input
+                     [label]="'Senha'"
+                     [validate]="true"
+                     type="password">
+                 </mz-input-container>
+               </div>
+             </div>
 
-      <form name="formLogin" *ngIf="showLogin()">
-        <div class="row">
-          <div class="col s12">
-            <mz-input-container>
-              <input mz-input
-                [label]="'Email'"
-                [validate]="true"
-                type="email">
-            </mz-input-container>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12">
-            <mz-input-container>
-              <input mz-input
-                [label]="'Senha'"
-                [validate]="true"
-                type="password">
-            </mz-input-container>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12">
-            <button mz-button
-              type="submit"
-              name="btnLogin"
-              class="right red darken-2">
-                Entrar
-            </button>
-          </div>
-        </div>
-      </form>
-
-      <form name="formSignup" *ngIf="!showLogin()">
-        <div class="row">
-          <div class="col s12">
-            <mz-input-container>
-              <input mz-input
-                [label]="'Nome'"
-                [validate]="true"
-                [length]="150"
-                maxlength="150"
-                name="user-name"
-                [(ngModel)]="user.name"
-                type="text">
-            </mz-input-container>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12">
-            <mz-input-container>
-              <input mz-input
-                [label]="'Email'"
-                [validate]="true"
-                [(ngModel)]="user.email"
-                name="user-email"
-                type="email">
-            </mz-input-container>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12">
-            <mz-input-container>
-              <input mz-input
-                #zipcodeInput
-                [label]="'CEP'"
-                [validate]="true"
-                (blur)="searchAddress(zipcodeInput.value)"
-                maxlength="8"
-                name="user-zipcode"
-                [(ngModel)]="user.address.zipcode"
-                type="text">
-            </mz-input-container>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12">
-            <mz-input-container>
-              <input mz-input
-                [label]="'Endereço'"
-                [validate]="true"
-                [(ngModel)]="user.address.publicplace"
-                name="user-publicplace"
-                type="text">
-            </mz-input-container>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12">
-            <mz-input-container>
-              <input mz-input
-                [label]="'Bairro'"
-                [validate]="true"
-                [(ngModel)]="user.address.neighborhood"
-                name="user-neighborhood"
-                type="text">
-            </mz-input-container>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12">
-            <mz-input-container>
-              <input mz-input
-                [label]="'Cidade'"
-                [validate]="true"
-                [(ngModel)]="user.address.city"
-                name="user-city"
-                type="text">
-            </mz-input-container>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12">
-            <mz-select-container>
-              <select mz-select
-                id="signupStateName"
-                name="user-state"
-                [(ngModel)]="user.address.state.id"
-                [placeholder]="'Selecione um estado...'">
-                <option async *ngFor="let state of states" value="{{ state.id }}">{{ state.name }}</option>
-              </select>
-            </mz-select-container>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12">
-            <mz-input-container>
-              <input mz-input
-                [label]="'Número'"
-                [validate]="true"
-                [(ngModel)]="user.address.number"
-                name="user-number"
-                type="number">
-            </mz-input-container>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12">
-            <button mz-button
-              class="right red darken-2"
-              type="submit">
-                Cadastrar
-            </button>
-          </div>
-        </div>
-      </form>
-
+             <div class="row">
+               <div class="col s12">
+                 <button mz-button
+                   type="submit"
+                   name="btnLogin"
+                   class="right red darken-2">
+                     Entrar
+                 </button>
+               </div>
+             </div>
+           </form>
+         </mz-tab-item>
+         <mz-tab-item [label]="'Criar Conta'">
+           <app-user-form></app-user-form>
+         </mz-tab-item>
+       </mz-tab>
      </div>
     <div class="card-action">
 

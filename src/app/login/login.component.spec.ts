@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from './../shared/material.module';
 
 import { LoginComponent } from './login.component';
+import { UserFormComponent } from './../users/user-form/user-form.component';
 
 import { StatesService } from './../states/states.service';
 import { ViacepService } from './../shared/viacep.service';
@@ -15,7 +16,10 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [
+        LoginComponent,
+        UserFormComponent,
+      ],
       imports: [
         MaterialModule,
         FormsModule,
@@ -23,14 +27,19 @@ describe('LoginComponent', () => {
       ],
       providers: [ StatesService, ViacepService ]
     })
-    .compileComponents();
+    .compileComponents().then(() => {
+      fixture = TestBed.createComponent(LoginComponent);
+      component = fixture.componentInstance;
+    });
   }));
 
+  /*
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+  */
 
   it('should create', () => {
     expect(component).toBeTruthy();

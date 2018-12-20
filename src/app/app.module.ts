@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material.module';
 import { LoginComponent } from './login/login.component';
 import { LoadingModalComponent } from './shared/loading-modal/loading-modal.component';
+import { UserFormComponent } from './users/user-form/user-form.component';
 
 // Serviços
 import { StatesService } from './states/states.service';
@@ -21,6 +22,7 @@ import { ViacepService } from './shared/viacep.service';
 @NgModule({
   declarations: [
     AppComponent,
+    UserFormComponent,
     LoadingModalComponent,
     LoginComponent
   ],
