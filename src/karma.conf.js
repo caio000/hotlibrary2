@@ -3,7 +3,17 @@
 
 module.exports = function (config) {
   config.set({
-    basePath: '',
+    customLauchers: {
+      ChromeHeadless: {
+        base: 'Chrome',
+        flags: [
+          "--disable-translate",
+          "--disable-extensions",
+          "remote-debugging-port=9223",
+          "--no-sandbox"
+        ]
+      }
+    },
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     files: [
       'https://code.jquery.com/jquery-1.11.2.min.js',
@@ -33,8 +43,8 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false
+    autoWatch: false,
+    browsers: ['ChromeHeadless'],
+    singleRun: true
   });
 };
